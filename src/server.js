@@ -32,4 +32,4 @@ app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')));
 
 app.use(require('./routes'));
 
-server.listen(port, () => console.log(`API listening on port ${port}`));
+server.listen(process.env.PORT || port, () => console.log(`API listening on port ${port}`));
