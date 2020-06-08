@@ -17,6 +17,15 @@ class BoxController {
 
         return res.json(box);
     }
+
+    async list(_, res) {
+        const boxList = await Box.find().populate({
+            path: 'files',
+            options: { sort: { createdAt: -1 } }
+        });
+
+        return res.json(boxList);
+    }
 }
 
 module.exports = new BoxController();
